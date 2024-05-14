@@ -62,5 +62,5 @@ class DBClient {
   }
 }
 
-export const dataBaseClient = new DBClient();
-export default dataBaseClient;
+export const dbClient = new DBClient();
+export default dbClient;
