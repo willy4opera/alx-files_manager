@@ -1,7 +1,7 @@
-import mongodb from "mongodb";
+import mongodb from 'mongodb';
 // eslint-disable-next-line no-unused-vars
-import Collection from "mongodb/lib/collection";
-import envLoader from "./env_loader";
+import Collection from 'mongodb/lib/collection';
+import envLoader from './env_loader';
 
 /**
  * Representation of a MongoDB client.
@@ -12,9 +12,9 @@ class DBClient {
    */
   constructor() {
     envLoader();
-    const host = process.env.DB_HOST || "localhost";
+    const host = process.env.DB_HOST || 'localhost';
     const port = process.env.DB_PORT || 27017;
-    const database = process.env.DB_DATABASE || "files_manager";
+    const database = process.env.DB_DATABASE || 'files_manager';
     const dbURL = `mongodb://${host}:${port}/${database}`;
 
     this.client = new mongodb.MongoClient(dbURL, { useUnifiedTopology: true });
@@ -35,7 +35,7 @@ class DBClient {
    * @returns {Promise<Number>}
    */
   async nbUsers() {
-    const nBUserdata = this.client.db().collection("users").countDocuments();
+    const nBUserdata = this.client.db().collection('users').countDocuments();
     return nBUserdata;
   }
 
@@ -44,7 +44,7 @@ class DBClient {
    * @returns {Promise<Number>}
    */
   async nbFiles() {
-    const nbDoc = this.client.db().collection("files").countDocuments();
+    const nbDoc = this.client.db().collection('files').countDocuments();
     return nbDoc;
   }
 
@@ -53,7 +53,7 @@ class DBClient {
    * @returns {Promise<Collection>}
    */
   async usersCollection() {
-    const userCol = this.client.db().collection("users");
+    const userCol = this.client.db().collection('users');
     return userCol;
   }
 
@@ -62,7 +62,7 @@ class DBClient {
    * @returns {Promise<Collection>}
    */
   async filesCollection() {
-    const fileCol = this.client.db().collection("files");
+    const fileCol = this.client.db().collection('files');
     return fileCol;
   }
 }

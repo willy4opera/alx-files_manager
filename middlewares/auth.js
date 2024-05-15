@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { Request, Response, NextFunction } from "express";
-import { getUserFromXToken, getUserFromAuthorization } from "../utils/auth";
+import { Request, Response, NextFunction } from 'express';
+import { getUserFromXToken, getUserFromAuthorization } from '../utils/auth';
 
 /**
  * Here, we applied the basic authentication to a route.
@@ -12,7 +12,7 @@ export const basicAuthenticate = async (req, res, next) => {
   const user = await getUserFromAuthorization(req);
 
   if (!user) {
-    res.status(401).json({ error: "Unauthorized" });
+    res.status(401).json({ error: 'Unauthorized' });
     return;
   }
   req.user = user;
@@ -29,7 +29,7 @@ export const xTokenAuthenticate = async (req, res, next) => {
   const user = await getUserFromXToken(req);
 
   if (!user) {
-    res.status(401).json({ error: "Unauthorized" });
+    res.status(401).json({ error: 'Unauthorized' });
     return;
   }
   req.user = user;

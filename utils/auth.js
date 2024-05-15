@@ -1,10 +1,10 @@
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable no-unused-vars */
-import sha1 from "sha1";
-import { Request } from "express";
-import mongoDBCore from "mongodb/lib/core";
-import dbClient from "./db";
-import redisClient from "./redis";
+import sha1 from 'sha1';
+import { Request } from 'express';
+import mongoDBCore from 'mongodb/lib/core';
+import dbClient from './db';
+import redisClient from './redis';
 
 /**
  * Here, we fetched the user from the
@@ -18,13 +18,13 @@ export const getUserFromAuthorization = async (req) => {
   if (!authorization) {
     return null;
   }
-  const authorizationParts = authorization.split(" ");
+  const authorizationParts = authorization.split(' ');
 
-  if (authorizationParts.length !== 2 || authorizationParts[0] !== "Basic") {
+  if (authorizationParts.length !== 2 || authorizationParts[0] !== 'Basic') {
     return null;
   }
-  const token = Buffer.from(authorizationParts[1], "base64").toString();
-  const sepPos = token.indexOf(":");
+  const token = Buffer.from(authorizationParts[1], 'base64').toString();
+  const sepPos = token.indexOf(':');
   const email = token.substring(0, sepPos);
   const password = token.substring(sepPos + 1);
   const user = await (await dbClient.usersCollection()).findOne({ email });
@@ -41,7 +41,7 @@ export const getUserFromAuthorization = async (req) => {
  * @returns {Promise<{_id: ObjectId, email: string, password: string}>}
  */
 export const getUserFromXToken = async (req) => {
-  const token = req.headers["x-token"];
+  const token = req.headers['x-token'];
 
   if (!token) {
     return null;
