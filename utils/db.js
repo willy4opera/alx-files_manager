@@ -44,7 +44,8 @@ class DBClient {
    * @returns {Promise<Number>}
    */
   async nbFiles() {
-    return this.client.db().collection('files').countDocuments();
+    const nbDoc = this.client.db().collection('files').countDocuments();
+    return nbDoc;
   }
 
   /**
@@ -52,7 +53,8 @@ class DBClient {
    * @returns {Promise<Collection>}
    */
   async usersCollection() {
-    return this.client.db().collection('users');
+    const userCol = this.client.db().collection('users');
+    return userCol;
   }
 
   /**
@@ -60,7 +62,8 @@ class DBClient {
    * @returns {Promise<Collection>}
    */
   async filesCollection() {
-    return this.client.db().collection('files');
+    const fileCol = this.client.db().collection('files');
+    return fileCol;
   }
 }
 
