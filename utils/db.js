@@ -1,5 +1,3 @@
-#!/usr/bin/node
-
 import mongodb from 'mongodb';
 // eslint-disable-next-line no-unused-vars
 import Collection from 'mongodb/lib/collection';
@@ -24,7 +22,7 @@ class DBClient {
   }
 
   /**
-   * Here, we check successful  client's connection to the MongoDB server is active.
+   * Here, we check successful client's connection to the MongoDB server is active.
    * @returns {boolean}
    */
   isAlive() {
