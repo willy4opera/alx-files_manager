@@ -1,5 +1,3 @@
-#!/usr/bin/node
-
 import { existsSync, readFileSync } from 'fs';
 
 /**
