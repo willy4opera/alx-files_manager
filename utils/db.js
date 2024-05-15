@@ -29,7 +29,7 @@ class DBClient {
    */
   isAlive() {
     const clientData = this.client.isConnected();
-    return clientData
+    return clientData;
   }
 
   /**
