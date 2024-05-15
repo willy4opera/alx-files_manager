@@ -1,8 +1,8 @@
-import express from 'express';
+import express from "express";
 /* eslint-disable and no-unused-vars */
-import injectRoutes from './routes';
-import startServer from './libs/boot';
-import injectMiddlewares from './libs/middlewares';
+import injectRoutes from "./routes";
+import startServer from "./libs/boot";
+import injectMiddlewares from "./libs/middlewares";
 
 // Created the Express Server
 const server = express();

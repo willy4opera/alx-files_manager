@@ -1,5 +1,5 @@
-import { promisify } from 'util';
-import { createClient } from 'redis';
+import { promisify } from "util";
+import { createClient } from "redis";
 
 /**
  * Representation of the Redis client.
@@ -11,11 +11,14 @@ class RedisClient {
   constructor() {
     this.client = createClient();
     this.isClientConnected = true;
-    this.client.on('error', (err) => {
-      console.error('Redis client failed to connect:', err.message || err.toString());
+    this.client.on("error", (err) => {
+      console.error(
+        "Redis client failed to connect:",
+        err.message || err.toString(),
+      );
       this.isClientConnected = false;
     });
-    this.client.on('connect', () => {
+    this.client.on("connect", () => {
       this.isClientConnected = true;
     });
   }
@@ -45,8 +48,7 @@ class RedisClient {
    * @returns {Promise<void>}
    */
   async set(key, value, duration) {
-    await promisify(this.client.SETEX)
-      .bind(this.client)(key, duration, value);
+    await promisify(this.client.SETEX).bind(this.client)(key, duration, value);
   }
 
   /**
