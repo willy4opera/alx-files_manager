@@ -1,12 +1,14 @@
 import express from 'express';
-import startServer from './libs/boot';
+/* eslint-disable and no-unused-vars */
 import injectRoutes from './routes';
+import startServer from './libs/boot';
 import injectMiddlewares from './libs/middlewares';
 
+// Created the Express Server
 const server = express();
 
 injectMiddlewares(server);
-injectRoutes(server);
+RoutesInject(server);
 startServer(server);
 
 export default server;
