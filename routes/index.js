@@ -12,7 +12,7 @@ import { basicAuthenticate, xTokenAuthenticate } from '../middlewares/auth';
  * handlers to the given Express application.
  * @param {Express} api
  */
-const RoutesInject = (api) => {
+const injectRoutes = (api) => {
   api.get('/status', AppController.getStatus);
   api.get('/stats', AppController.getStats);
 
@@ -35,4 +35,4 @@ const RoutesInject = (api) => {
   api.use(errorResponse);
 };
 
-export default RoutesInject;
+export default injectRoutes;
