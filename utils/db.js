@@ -26,8 +26,7 @@ class DBClient {
    * @returns {boolean}
    */
   isAlive() {
-    const clientData = this.client.isConnected();
-    return clientData;
+    return this.client.isConnected();
   }
 
   /**
@@ -35,8 +34,7 @@ class DBClient {
    * @returns {Promise<Number>}
    */
   async nbUsers() {
-    const nBUserdata = this.client.db().collection('users').countDocuments();
-    return nBUserdata;
+    return this.client.db().collection('users').countDocuments();
   }
 
   /**
